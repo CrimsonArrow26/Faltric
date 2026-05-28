@@ -1,0 +1,431 @@
+/* ─────────────────────────────────────────────────────
+   WalletAuth.css
+   Design: Modern Minimalist Glassmorphism
+   Palette: Black (#050505), Emerald (#10b981), White (#ffffff)
+───────────────────────────────────────────────────── */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/* ── Root Variables ── */
+:root {
+  --green: #10b981;
+  --green-light: #34d399;
+  --black: #050505;
+  --white: #ffffff;
+  --glass-bg: rgba(20, 20, 20, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --neo-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+  --neo-border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Fullscreen Gate ── */
+.faltric-auth-gate {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--black);
+  background-image:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 255, 255, 0.01) 0%,
+      transparent 30%
+    );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+}
+
+/* Ambient glow */
+.faltric-auth-gate::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+/* ── Brand Header ── */
+.faltric-brand {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.faltric-brand h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -1px;
+  margin: 0;
+  line-height: 1;
+  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faltric-brand p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  font-weight: 300;
+  margin-top: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.faltric-brand .brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  margin-bottom: 1rem;
+}
+.faltric-brand .brand-tag::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+  animation: pulse 2s infinite;
+}
+
+/* ── Glass Card ── */
+.faltric-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faltric-card h2 {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.faltric-card .card-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: block;
+  font-weight: 300;
+}
+
+/* ── Connect Wallet Screen ── */
+.faltric-connect-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.wallet-icon {
+  font-size: 3rem;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+  margin-bottom: 0.5rem;
+}
+
+.faltric-connect-screen p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+/* ── Modern Buttons ── */
+.btn-neo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.75rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  transition: all 0.2s ease;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.btn-neo:hover {
+  background: linear-gradient(180deg, #333333 0%, #222222 100%);
+  box-shadow:
+    0 4px 12px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-neo:active {
+  transform: translateY(1px);
+  background: linear-gradient(180deg, #151515 0%, #202020 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-neo:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-yellow {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.btn-yellow:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+.btn-green {
+  background: linear-gradient(
+    180deg,
+    rgba(16, 185, 129, 0.2) 0%,
+    rgba(16, 185, 129, 0.1) 100%
+  );
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+.btn-green:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(16, 185, 129, 0.3) 0%,
+    rgba(16, 185, 129, 0.15) 100%
+  );
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* ── Modern Form Inputs ── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.neo-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.neo-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.neo-input:focus {
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 0 2px rgba(16, 185, 129, 0.2);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* ── Wallet Address Badge ── */
+.wallet-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.wallet-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+  animation: pulse 2s infinite;
+}
+
+.wallet-badge .addr {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  font-family: monospace;
+}
+
+/* ── Form Row ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ── Status / Error ── */
+.faltric-status {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.faltric-status.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.faltric-status.success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+}
+
+.faltric-status.info {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+}
+
+/* ── Loading Spinner ── */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+  }
+}
+
+/* ── Toggle mode link ── */
+.mode-toggle {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.mode-toggle button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.mode-toggle button:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  .faltric-card {
+    padding: 1.75rem 1.25rem;
+  }
+  .faltric-brand h1 {
+    font-size: 2.5rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
